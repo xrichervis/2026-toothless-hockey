@@ -2,7 +2,7 @@ name: Rebuild NHL pool site
 
 on:
   schedule:
-    - cron: "0 5 * * *"
+    - cron: "0 4 * * *"
   workflow_dispatch:
 
 permissions:
