@@ -14,6 +14,7 @@ PLAYOFF_BRACKET_URL = "https://api-web.nhle.com/v1/playoff-bracket/2026"
 CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRwp6OncSv2CpUxjFNsJNZ7gG5BBKUIVNYHoFwR7TTJstb-mpGNQYmYwyizlRRalA/pub?output=csv"
 
 OUT_DIR = Path("dist")
+OUT_DIR.mkdir(parents=True, exist_ok=True)  # 👈 ADD THIS LINE
 HTML_FILE = OUT_DIR / "index.html"
 
 TEAM_MAP = {"TB": "TBL", "TBL": "TBL"}
