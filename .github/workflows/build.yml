@@ -2,7 +2,8 @@ name: Rebuild NHL pool site
 
 on:
   schedule:
-    - cron: "0 4 * * *"
+    - cron: "30 2 * * *"  # 10:30 PM Toronto (EDT)
+    - cron: "0 6 * * *"   # 2:00 AM Toronto (EDT)
   workflow_dispatch:
 
 permissions:
