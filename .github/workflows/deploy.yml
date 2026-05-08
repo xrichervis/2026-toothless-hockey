@@ -3,8 +3,7 @@ name: Build and deploy site
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 2 * * *"
-
+    - cron: "0 * * * *"
 permissions:
   contents: write
 
