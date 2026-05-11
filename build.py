@@ -1,6 +1,3 @@
-Here’s the full version with `Contestant` changed to `Name`.
-
-```python
 import pandas as pd
 import requests
 from pathlib import Path
@@ -826,4 +823,3 @@ with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
 print(f"Created: {HTML_FILE}")
 print(f"Created: {zip_path}")
 print("Done.")
-```
