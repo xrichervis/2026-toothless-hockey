@@ -1,198 +1,219 @@
 
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>2026 "TOOTHLESS HOCKEY" NHL Playoff Pool</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    :root {
-      --bg: #fafafa;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --points: #f9e3d6;
-      --green: #48dc03;
-      --red: #ff5733;
-    }
+<meta charset="utf-8">
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.4;
-    }
+<title>2026 "TOOTHLESS HOCKEY" NHL Playoff Pool</title>
 
-    header {
-      padding: 32px 20px 20px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    h1 {
-      margin: 0 0 6px;
-      font-size: 34px;
-      letter-spacing: -0.03em;
-    }
+<style>
 
-    .updated {
-      color: var(--muted);
-      margin: 0;
-    }
+:root {
+  --bg: #fafafa;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --points: #f9e3d6;
+  --green: #48dc03;
+  --red: #ff5733;
+}
 
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px 48px;
-    }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.4;
+}
 
-    .tabs {
-      display: flex;
-      gap: 8px;
-      margin: 18px 0;
-      flex-wrap: wrap;
-    }
+header {
+  padding: 32px 20px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
 
-    .tab-button {
-      border: 1px solid var(--border);
-      background: white;
-      padding: 10px 14px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-weight: 700;
-    }
+h1 {
+  margin: 0 0 6px;
+  font-size: 34px;
+  letter-spacing: -0.03em;
+}
 
-    .tab-button.active {
-      background: #111827;
-      color: white;
-      border-color: #111827;
-    }
+.updated {
+  color: var(--muted);
+  margin: 0;
+}
 
-    .tab-content {
-      display: none;
-    }
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 48px;
+}
 
-    .tab-content.active {
-      display: block;
-    }
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin: 18px 0;
+  flex-wrap: wrap;
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      margin-bottom: 24px;
-      font-size: 14px;
-    }
+.tab-button {
+  border: 1px solid var(--border);
+  background: white;
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+}
 
-    th, td {
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--border);
-      text-align: left;
-      border-right: 1px dashed #d1d5db;
-    }
+.tab-button.active {
+  background: #111827;
+  color: white;
+  border-color: #111827;
+}
 
-    th {
-      background: #f3f4f6;
-      font-weight: 800;
-    }
+.tab-content {
+  display: none;
+}
 
-    .leaderboard tr.gold td {
-      background: gold;
-      font-weight: 800;
-    }
+.tab-content.active {
+  display: block;
+}
 
-    .leaderboard tr.silver td {
-      background: #c0c0c0;
-      font-weight: 800;
-    }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
 
-    .leaderboard tr.bronze td {
-      background: #cd7f32;
-      font-weight: 800;
-    }
+th, td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  border-right: 1px dashed #d1d5db;
+}
 
-    .team-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 18px;
-      margin: 18px 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-      overflow-x: auto;
-    }
+th {
+  background: #f3f4f6;
+  font-weight: 800;
+}
 
-    .team-card h3 {
-      margin: 0;
-      font-size: 22px;
-    }
+.leaderboard tr.gold td {
+  background: gold;
+  font-weight: 800;
+}
 
-    .team-card h3 span {
-      color: var(--muted);
-      font-size: 16px;
-      font-weight: 600;
-    }
+.leaderboard tr.silver td {
+  background: #c0c0c0;
+  font-weight: 800;
+}
 
-    .remaining {
-      margin: 4px 0 14px;
-      color: var(--muted);
-      font-weight: 700;
-    }
+.leaderboard tr.bronze td {
+  background: #cd7f32;
+  font-weight: 800;
+}
 
-    .points {
-      background: var(--points);
-      font-weight: 800;
-    }
+.team-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  margin: 18px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  overflow-x: auto;
+}
 
-    .eliminated {
-      background: var(--red);
-      color: white;
-      font-style: italic;
-      font-weight: 800;
-    }
+.team-card h3 {
+  margin: 0;
+  font-size: 22px;
+}
 
-    .remaining-cell {
-      background: var(--green);
-      color: white;
-      font-weight: 800;
-    }
+.team-card h3 span {
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 600;
+}
 
-    .note {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 24px;
-    }
-  </style>
+.remaining {
+  margin: 4px 0 14px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.points {
+  background: var(--points);
+  font-weight: 800;
+}
+
+.eliminated {
+  background: var(--red);
+  color: white;
+  font-style: italic;
+  font-weight: 800;
+}
+
+.remaining-cell {
+  background: var(--green);
+  color: white;
+  font-weight: 800;
+}
+
+.total-row td {
+  background: #f3f4f6;
+  font-weight: 800;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 24px;
+}
+
+</style>
+
 </head>
 
 <body>
+
 <header>
   <h1>2026 "TOOTHLESS HOCKEY" NHL Playoff Pool</h1>
-  <p class="updated">Last updated on May 11, 2026 at 05:19 PM ET</p>
+  <p class="updated">Last updated on May 11, 2026 at 06:16 PM ET</p>
 </header>
 
 <main>
-  <div class="tabs">
-    <button class="tab-button active" data-tab="leaderboard">Leader Board</button>
-    <button class="tab-button" data-tab="teams">Playoff Pool Teams</button>
-  </div>
 
-  <section id="leaderboard" class="tab-content active">
-    <table class="leaderboard">
+<div class="tabs">
+  <button class="tab-button active" data-tab="leaderboard">
+    Leader Board
+  </button>
+
+  <button class="tab-button" data-tab="teams">
+    Playoff Pool Teams
+  </button>
+</div>
+
+<section id="leaderboard" class="tab-content active">
+  <table class="leaderboard">
 <thead><tr>
-<th>Rankings</th>
+<th>Rank</th>
 <th>Contestant</th>
 <th>Draft Order</th>
 <th>Points</th>
-<th>Players Remaining</th>
+<th>Goals</th>
+<th>Players Left</th>
 </tr></thead><tbody>
 <tr class="gold">
 <td>1</td>
 <td>James</td>
 <td>1</td>
 <td>64</td>
+<td>25</td>
 <td>5</td>
 </tr>
 <tr class="silver">
@@ -200,6 +221,7 @@
 <td>Luka</td>
 <td>5</td>
 <td>60</td>
+<td>15</td>
 <td>9</td>
 </tr>
 <tr class="bronze">
@@ -207,6 +229,7 @@
 <td>Tom</td>
 <td>7</td>
 <td>57</td>
+<td>22</td>
 <td>9</td>
 </tr>
 <tr class="">
@@ -214,6 +237,7 @@
 <td>Coltrane</td>
 <td>4</td>
 <td>57</td>
+<td>20</td>
 <td>6</td>
 </tr>
 <tr class="">
@@ -221,6 +245,7 @@
 <td>Dave</td>
 <td>6</td>
 <td>57</td>
+<td>18</td>
 <td>5</td>
 </tr>
 <tr class="">
@@ -228,6 +253,7 @@
 <td>Alyssa</td>
 <td>2</td>
 <td>53</td>
+<td>19</td>
 <td>4</td>
 </tr>
 <tr class="">
@@ -235,36 +261,40 @@
 <td>Xavi</td>
 <td>3</td>
 <td>52</td>
+<td>17</td>
 <td>6</td>
 </tr>
 <tr class="">
 <td>8</td>
-<td>Kia</td>
-<td>9</td>
-<td>48</td>
-<td>8</td>
-</tr>
-<tr class="">
-<td>9</td>
 <td>Dyuman</td>
 <td>10</td>
 <td>48</td>
+<td>14</td>
 <td>6</td>
+</tr>
+<tr class="">
+<td>9</td>
+<td>Kia</td>
+<td>9</td>
+<td>48</td>
+<td>14</td>
+<td>8</td>
 </tr>
 <tr class="">
 <td>10</td>
 <td>Anuja</td>
 <td>8</td>
 <td>41</td>
+<td>13</td>
 <td>6</td>
 </tr>
 </tbody></table>
-  </section>
+</section>
 
-  <section id="teams" class="tab-content">
-    <section class="team-card">
+<section id="teams" class="tab-content">
+  <section class="team-card">
 <h3>James <span>(Total Points: 64)</span></h3>
-<p class="remaining">Players Remaining: 5</p>
+<p class="remaining">Players Left: 5</p>
 <table class="team-table">
 <thead><tr>
 <th>Player</th>
@@ -275,7 +305,7 @@
 <th>Wins</th>
 <th>Shutouts</th>
 <th>Points</th>
-<th>Player Eliminated</th>
+<th>Player Status</th>
 </tr></thead><tbody>
 <tr>
 <td>Nathan MacKinnon</td>
@@ -398,11 +428,22 @@
 <td class="points">14</td>
 <td class="remaining-cell">Remaining</td>
 </tr>
+<tr class="total-row">
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td><strong>25</strong></td>
+<td><strong>25</strong></td>
+<td><strong>8</strong></td>
+<td><strong>2</strong></td>
+<td class="points"><strong>64</strong></td>
+<td></td>
+</tr>
 </tbody></table>
 </section>
 <section class="team-card">
 <h3>Luka <span>(Total Points: 60)</span></h3>
-<p class="remaining">Players Remaining: 9</p>
+<p class="remaining">Players Left: 9</p>
 <table class="team-table">
 <thead><tr>
 <th>Player</th>
@@ -413,7 +454,7 @@
 <th>Wins</th>
 <th>Shutouts</th>
 <th>Points</th>
-<th>Player Eliminated</th>
+<th>Player Status</th>
 </tr></thead><tbody>
 <tr>
 <td>Jackson Blake</td>
@@ -536,11 +577,22 @@
 <td class="points">6</td>
 <td class="remaining-cell">Remaining</td>
 </tr>
+<tr class="total-row">
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td><strong>15</strong></td>
+<td><strong>39</strong></td>
+<td><strong>6</strong></td>
+<td><strong>0</strong></td>
+<td class="points"><strong>60</strong></td>
+<td></td>
+</tr>
 </tbody></table>
 </section>
 <section class="team-card">
 <h3>Tom <span>(Total Points: 57)</span></h3>
-<p class="remaining">Players Remaining: 9</p>
+<p class="remaining">Players Left: 9</p>
 <table class="team-table">
 <thead><tr>
 <th>Player</th>
@@ -551,7 +603,7 @@
 <th>Wins</th>
 <th>Shutouts</th>
 <th>Points</th>
-<th>Player Eliminated</th>
+<th>Player Status</th>
 </tr></thead><tbody>
 <tr>
 <td>Martin Necas</td>
@@ -674,11 +726,22 @@
 <td class="points">0</td>
 <td class="eliminated">Eliminated</td>
 </tr>
+<tr class="total-row">
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td><strong>22</strong></td>
+<td><strong>35</strong></td>
+<td><strong>0</strong></td>
+<td><strong>0</strong></td>
+<td class="points"><strong>57</strong></td>
+<td></td>
+</tr>
 </tbody></table>
 </section>
 <section class="team-card">
 <h3>Coltrane <span>(Total Points: 57)</span></h3>
-<p class="remaining">Players Remaining: 6</p>
+<p class="remaining">Players Left: 6</p>
 <table class="team-table">
 <thead><tr>
 <th>Player</th>
@@ -689,7 +752,7 @@
 <th>Wins</th>
 <th>Shutouts</th>
 <th>Points</th>
-<th>Player Eliminated</th>
+<th>Player Status</th>
 </tr></thead><tbody>
 <tr>
 <td>Tage Thompson</td>
@@ -812,11 +875,22 @@
 <td class="points">2</td>
 <td class="eliminated">Eliminated</td>
 </tr>
+<tr class="total-row">
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td><strong>20</strong></td>
+<td><strong>35</strong></td>
+<td><strong>2</strong></td>
+<td><strong>0</strong></td>
+<td class="points"><strong>57</strong></td>
+<td></td>
+</tr>
 </tbody></table>
 </section>
 <section class="team-card">
 <h3>Dave <span>(Total Points: 57)</span></h3>
-<p class="remaining">Players Remaining: 5</p>
+<p class="remaining">Players Left: 5</p>
 <table class="team-table">
 <thead><tr>
 <th>Player</th>
@@ -827,7 +901,7 @@
 <th>Wins</th>
 <th>Shutouts</th>
 <th>Points</th>
-<th>Player Eliminated</th>
+<th>Player Status</th>
 </tr></thead><tbody>
 <tr>
 <td>Matt Duchene</td>
@@ -950,11 +1024,22 @@
 <td class="points">6</td>
 <td class="eliminated">Eliminated</td>
 </tr>
+<tr class="total-row">
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td><strong>18</strong></td>
+<td><strong>33</strong></td>
+<td><strong>3</strong></td>
+<td><strong>1</strong></td>
+<td class="points"><strong>57</strong></td>
+<td></td>
+</tr>
 </tbody></table>
 </section>
 <section class="team-card">
 <h3>Alyssa <span>(Total Points: 53)</span></h3>
-<p class="remaining">Players Remaining: 4</p>
+<p class="remaining">Players Left: 4</p>
 <table class="team-table">
 <thead><tr>
 <th>Player</th>
@@ -965,7 +1050,7 @@
 <th>Wins</th>
 <th>Shutouts</th>
 <th>Points</th>
-<th>Player Eliminated</th>
+<th>Player Status</th>
 </tr></thead><tbody>
 <tr>
 <td>Leo Carlsson</td>
@@ -1088,11 +1173,22 @@
 <td class="points">0</td>
 <td class="eliminated">Eliminated</td>
 </tr>
+<tr class="total-row">
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td><strong>19</strong></td>
+<td><strong>34</strong></td>
+<td><strong>0</strong></td>
+<td><strong>0</strong></td>
+<td class="points"><strong>53</strong></td>
+<td></td>
+</tr>
 </tbody></table>
 </section>
 <section class="team-card">
 <h3>Xavi <span>(Total Points: 52)</span></h3>
-<p class="remaining">Players Remaining: 6</p>
+<p class="remaining">Players Left: 6</p>
 <table class="team-table">
 <thead><tr>
 <th>Player</th>
@@ -1103,7 +1199,7 @@
 <th>Wins</th>
 <th>Shutouts</th>
 <th>Points</th>
-<th>Player Eliminated</th>
+<th>Player Status</th>
 </tr></thead><tbody>
 <tr>
 <td>Brock Nelson</td>
@@ -1226,149 +1322,22 @@
 <td class="points">6</td>
 <td class="remaining-cell">Remaining</td>
 </tr>
-</tbody></table>
-</section>
-<section class="team-card">
-<h3>Kia <span>(Total Points: 48)</span></h3>
-<p class="remaining">Players Remaining: 8</p>
-<table class="team-table">
-<thead><tr>
-<th>Player</th>
-<th>Pos</th>
-<th>Team</th>
-<th>Goals</th>
-<th>Assists</th>
-<th>Wins</th>
-<th>Shutouts</th>
-<th>Points</th>
-<th>Player Eliminated</th>
-</tr></thead><tbody>
-<tr>
-<td>Adam Henrique</td>
-<td>C</td>
-<td>EDM</td>
-<td>0</td>
-<td>0</td>
-<td>-</td>
-<td>-</td>
-<td class="points">0</td>
-<td class="eliminated">Eliminated</td>
-</tr>
-<tr>
-<td>Kirill Kaprizov</td>
-<td>L</td>
-<td>MIN</td>
-<td>4</td>
-<td>10</td>
-<td>-</td>
-<td>-</td>
-<td class="points">14</td>
-<td class="remaining-cell">Remaining</td>
-</tr>
-<tr>
-<td>Chris Kreider</td>
-<td>L</td>
-<td>ANA</td>
-<td>2</td>
-<td>5</td>
-<td>-</td>
-<td>-</td>
-<td class="points">7</td>
-<td class="remaining-cell">Remaining</td>
-</tr>
-<tr>
-<td>Clayton Keller</td>
-<td>L</td>
-<td>UTA</td>
-<td>1</td>
-<td>4</td>
-<td>-</td>
-<td>-</td>
-<td class="points">5</td>
-<td class="eliminated">Eliminated</td>
-</tr>
-<tr>
-<td>Troy Terry</td>
-<td>R</td>
-<td>ANA</td>
-<td>3</td>
-<td>7</td>
-<td>-</td>
-<td>-</td>
-<td class="points">10</td>
-<td class="remaining-cell">Remaining</td>
-</tr>
-<tr>
-<td>Valeri Nichushkin</td>
-<td>R</td>
-<td>COL</td>
-<td>1</td>
-<td>2</td>
-<td>-</td>
-<td>-</td>
-<td class="points">3</td>
-<td class="remaining-cell">Remaining</td>
-</tr>
-<tr>
-<td>Shea Theodore</td>
-<td>D</td>
-<td>VGK</td>
-<td>3</td>
-<td>4</td>
-<td>-</td>
-<td>-</td>
-<td class="points">7</td>
-<td class="remaining-cell">Remaining</td>
-</tr>
-<tr>
-<td>Jake Middleton</td>
-<td>D</td>
-<td>MIN</td>
-<td>0</td>
-<td>1</td>
-<td>-</td>
-<td>-</td>
-<td class="points">1</td>
-<td class="remaining-cell">Remaining</td>
-</tr>
-<tr>
-<td>Kaedan Korczak</td>
-<td>D</td>
-<td>VGK</td>
-<td>0</td>
-<td>1</td>
-<td>-</td>
-<td>-</td>
-<td class="points">1</td>
-<td class="remaining-cell">Remaining</td>
-</tr>
-<tr>
-<td>Victor Hedman</td>
-<td>D</td>
-<td>TBL</td>
-<td>0</td>
-<td>0</td>
-<td>-</td>
-<td>-</td>
-<td class="points">0</td>
-<td class="eliminated">Eliminated</td>
-</tr>
-<tr>
-<td>Mackenzie Blackwood</td>
-<td>G</td>
-<td>COL</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td class="points">0</td>
-<td class="remaining-cell">Remaining</td>
+<tr class="total-row">
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td><strong>17</strong></td>
+<td><strong>29</strong></td>
+<td><strong>6</strong></td>
+<td><strong>0</strong></td>
+<td class="points"><strong>52</strong></td>
+<td></td>
 </tr>
 </tbody></table>
 </section>
 <section class="team-card">
 <h3>Dyuman <span>(Total Points: 48)</span></h3>
-<p class="remaining">Players Remaining: 6</p>
+<p class="remaining">Players Left: 6</p>
 <table class="team-table">
 <thead><tr>
 <th>Player</th>
@@ -1379,7 +1348,7 @@
 <th>Wins</th>
 <th>Shutouts</th>
 <th>Points</th>
-<th>Player Eliminated</th>
+<th>Player Status</th>
 </tr></thead><tbody>
 <tr>
 <td>Jack Eichel</td>
@@ -1502,11 +1471,22 @@
 <td class="points">5</td>
 <td class="remaining-cell">Remaining</td>
 </tr>
+<tr class="total-row">
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td><strong>14</strong></td>
+<td><strong>29</strong></td>
+<td><strong>5</strong></td>
+<td><strong>0</strong></td>
+<td class="points"><strong>48</strong></td>
+<td></td>
+</tr>
 </tbody></table>
 </section>
 <section class="team-card">
-<h3>Anuja <span>(Total Points: 41)</span></h3>
-<p class="remaining">Players Remaining: 6</p>
+<h3>Kia <span>(Total Points: 48)</span></h3>
+<p class="remaining">Players Left: 8</p>
 <table class="team-table">
 <thead><tr>
 <th>Player</th>
@@ -1517,7 +1497,156 @@
 <th>Wins</th>
 <th>Shutouts</th>
 <th>Points</th>
-<th>Player Eliminated</th>
+<th>Player Status</th>
+</tr></thead><tbody>
+<tr>
+<td>Adam Henrique</td>
+<td>C</td>
+<td>EDM</td>
+<td>0</td>
+<td>0</td>
+<td>-</td>
+<td>-</td>
+<td class="points">0</td>
+<td class="eliminated">Eliminated</td>
+</tr>
+<tr>
+<td>Kirill Kaprizov</td>
+<td>L</td>
+<td>MIN</td>
+<td>4</td>
+<td>10</td>
+<td>-</td>
+<td>-</td>
+<td class="points">14</td>
+<td class="remaining-cell">Remaining</td>
+</tr>
+<tr>
+<td>Chris Kreider</td>
+<td>L</td>
+<td>ANA</td>
+<td>2</td>
+<td>5</td>
+<td>-</td>
+<td>-</td>
+<td class="points">7</td>
+<td class="remaining-cell">Remaining</td>
+</tr>
+<tr>
+<td>Clayton Keller</td>
+<td>L</td>
+<td>UTA</td>
+<td>1</td>
+<td>4</td>
+<td>-</td>
+<td>-</td>
+<td class="points">5</td>
+<td class="eliminated">Eliminated</td>
+</tr>
+<tr>
+<td>Troy Terry</td>
+<td>R</td>
+<td>ANA</td>
+<td>3</td>
+<td>7</td>
+<td>-</td>
+<td>-</td>
+<td class="points">10</td>
+<td class="remaining-cell">Remaining</td>
+</tr>
+<tr>
+<td>Valeri Nichushkin</td>
+<td>R</td>
+<td>COL</td>
+<td>1</td>
+<td>2</td>
+<td>-</td>
+<td>-</td>
+<td class="points">3</td>
+<td class="remaining-cell">Remaining</td>
+</tr>
+<tr>
+<td>Shea Theodore</td>
+<td>D</td>
+<td>VGK</td>
+<td>3</td>
+<td>4</td>
+<td>-</td>
+<td>-</td>
+<td class="points">7</td>
+<td class="remaining-cell">Remaining</td>
+</tr>
+<tr>
+<td>Jake Middleton</td>
+<td>D</td>
+<td>MIN</td>
+<td>0</td>
+<td>1</td>
+<td>-</td>
+<td>-</td>
+<td class="points">1</td>
+<td class="remaining-cell">Remaining</td>
+</tr>
+<tr>
+<td>Kaedan Korczak</td>
+<td>D</td>
+<td>VGK</td>
+<td>0</td>
+<td>1</td>
+<td>-</td>
+<td>-</td>
+<td class="points">1</td>
+<td class="remaining-cell">Remaining</td>
+</tr>
+<tr>
+<td>Victor Hedman</td>
+<td>D</td>
+<td>TBL</td>
+<td>0</td>
+<td>0</td>
+<td>-</td>
+<td>-</td>
+<td class="points">0</td>
+<td class="eliminated">Eliminated</td>
+</tr>
+<tr>
+<td>Mackenzie Blackwood</td>
+<td>G</td>
+<td>COL</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td class="points">0</td>
+<td class="remaining-cell">Remaining</td>
+</tr>
+<tr class="total-row">
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td><strong>14</strong></td>
+<td><strong>34</strong></td>
+<td><strong>0</strong></td>
+<td><strong>0</strong></td>
+<td class="points"><strong>48</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+</section>
+<section class="team-card">
+<h3>Anuja <span>(Total Points: 41)</span></h3>
+<p class="remaining">Players Left: 6</p>
+<table class="team-table">
+<thead><tr>
+<th>Player</th>
+<th>Pos</th>
+<th>Team</th>
+<th>Goals</th>
+<th>Assists</th>
+<th>Wins</th>
+<th>Shutouts</th>
+<th>Points</th>
+<th>Player Status</th>
 </tr></thead><tbody>
 <tr>
 <td>Nazem Kadri</td>
@@ -1640,28 +1769,47 @@
 <td class="points">0</td>
 <td class="remaining-cell">Remaining</td>
 </tr>
+<tr class="total-row">
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td><strong>13</strong></td>
+<td><strong>28</strong></td>
+<td><strong>0</strong></td>
+<td><strong>0</strong></td>
+<td class="points"><strong>41</strong></td>
+<td></td>
+</tr>
 </tbody></table>
 </section>
-  </section>
+</section>
 
-  <p class="note">
-    Scoring: skaters get goals + assists. Goalies get goals + assists + wins + three points per shutout.
-  </p>
+<p class="note">
+  Scoring: skaters get goals + assists.
+  Goalies get goals + assists + wins + three points per shutout.
+</p>
+
 </main>
 
 <script>
-  const buttons = document.querySelectorAll(".tab-button");
-  const tabs = document.querySelectorAll(".tab-content");
 
-  buttons.forEach(button => {
-    button.addEventListener("click", () => {
-      buttons.forEach(b => b.classList.remove("active"));
-      tabs.forEach(t => t.classList.remove("active"));
+const buttons = document.querySelectorAll(".tab-button");
+const tabs = document.querySelectorAll(".tab-content");
 
-      button.classList.add("active");
-      document.getElementById(button.dataset.tab).classList.add("active");
-    });
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    buttons.forEach(b => b.classList.remove("active"));
+    tabs.forEach(t => t.classList.remove("active"));
+
+    button.classList.add("active");
+
+    document
+      .getElementById(button.dataset.tab)
+      .classList.add("active");
   });
+});
+
 </script>
+
 </body>
 </html>
