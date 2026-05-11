@@ -575,7 +575,7 @@ template = Template(r'''
 
 <meta charset="utf-8">
 
-<title>2026 "TOOTHLESS HOCKEY" NHL Playoff Pool</title>
+<title>2026 "TOOTHLESS HOCKEY" Playoff Pool</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
