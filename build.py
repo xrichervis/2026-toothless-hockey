@@ -738,6 +738,19 @@ th {
   font-weight: 800;
 }
 
+@media (max-width: 768px) {
+
+  #leaderboard {
+    padding: 0 12px;
+  }
+
+  .leaderboard {
+    width: calc(100% - 24px);
+    margin: 0 auto;
+  }
+
+}
+
 .note {
   color: var(--muted);
   font-size: 13px;
