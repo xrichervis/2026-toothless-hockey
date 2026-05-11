@@ -360,15 +360,17 @@ joined = joined.sort_values(
 rankings = (
     joined.groupby("Contestant", as_index=False)
     .agg(
-        Points=("Points", "sum"),
-        **{"Players Remaining": ("Player Eliminated", lambda x: int((~x).sum()))}
+        **{
+            "Draft Order": ("Draft Order", "first"),
+            "Points": ("Points", "sum"),
+            "Players Remaining": ("Player Eliminated", lambda x: int((~x).sum())),
+        }
     )
     .sort_values(["Points", "Players Remaining"], ascending=[False, False])
     .reset_index(drop=True)
 )
 
 rankings.insert(0, "Rankings", range(1, len(rankings) + 1))
-
 # -----------------------------
 # HTML HELPERS
 # -----------------------------
