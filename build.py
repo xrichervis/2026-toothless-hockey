@@ -764,7 +764,7 @@ th {
 <body>
 
 <header>
-  <h1>2026 "TOOTHLESS HOCKEY" NHL Playoff Pool</h1>
+  <h1>2026 "TOOTHLESS HOCKEY" Playoff Pool</h1>
   <p class="updated">Last updated on {{ last_updated }} ET</p>
 </header>
 
