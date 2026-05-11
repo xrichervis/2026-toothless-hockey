@@ -1,3 +1,6 @@
+Here’s the full version with `Contestant` changed to `Name`.
+
+```python
 import pandas as pd
 import requests
 from pathlib import Path
@@ -107,7 +110,7 @@ print("Loading Google Sheet CSV...")
 
 pool = pd.read_csv(CSV_URL)
 
-needed_cols = ["Pick", "Player", "Contestant", "Position", "Team"]
+needed_cols = ["Pick", "Player", "Name", "Position", "Team"]
 
 missing = [c for c in needed_cols if c not in pool.columns]
 
@@ -117,7 +120,7 @@ if missing:
 pool = pool[needed_cols].copy()
 
 pool["Player"] = pool["Player"].astype(str).str.strip()
-pool["Contestant"] = pool["Contestant"].astype(str).str.strip()
+pool["Name"] = pool["Name"].astype(str).str.strip()
 pool["Team"] = pool["Team"].apply(clean_team)
 pool["Position"] = pool["Position"].apply(clean_position)
 pool["Player_clean"] = pool["Player"].apply(normalize_name)
@@ -126,14 +129,14 @@ pool["Player_clean"] = pool["Player"].apply(normalize_name)
 # ADD DRAFT ORDER
 # -----------------------------
 
-pool["Draft Order"] = pool["Contestant"].map(DRAFT_ORDER_MAP)
+pool["Draft Order"] = pool["Name"].map(DRAFT_ORDER_MAP)
 
 cols = pool.columns.tolist()
 
-contestant_idx = cols.index("Contestant")
+name_idx = cols.index("Name")
 
 cols.insert(
-    contestant_idx + 1,
+    name_idx + 1,
     cols.pop(cols.index("Draft Order"))
 )
 
@@ -196,7 +199,7 @@ looper = pool.merge(
     how="left"
 )
 
-missing_ids = looper[looper["id"].isna()][["Player", "Team", "Position", "Contestant"]]
+missing_ids = looper[looper["id"].isna()][["Player", "Team", "Position", "Name"]]
 
 if len(missing_ids):
     print("WARNING: These players did not match NHL roster metadata:")
@@ -376,12 +379,12 @@ joined["Player Status"] = joined["Team"].isin(eliminated_teams)
 joined["rank_pos"] = joined["Pos"].map(POSITION_ORDER).fillna(99)
 
 joined = joined.sort_values(
-    ["Contestant", "rank_pos", "Points"],
+    ["Name", "rank_pos", "Points"],
     ascending=[True, True, False]
 )
 
 rankings = (
-    joined.groupby("Contestant", as_index=False)
+    joined.groupby("Name", as_index=False)
     .agg(
         **{
             "Draft Order": ("Draft Order", "first"),
@@ -397,7 +400,7 @@ rankings = (
 rankings.insert(0, "Rank", range(1, len(rankings) + 1))
 
 rankings = rankings[
-    ["Rank", "Contestant", "Draft Order", "Points", "Goals", "Players Left"]
+    ["Rank", "Name", "Draft Order", "Points", "Goals", "Players Left"]
 ]
 
 # -----------------------------
@@ -441,7 +444,7 @@ def make_leaderboard_html(rankings_df):
 
     return "\n".join(html)
 
-def make_contestant_table_html(contestant, df):
+def make_contestant_table_html(name, df):
     show_cols = [
         "Player",
         "Pos",
@@ -454,7 +457,7 @@ def make_contestant_table_html(contestant, df):
         "Player Status"
     ]
 
-    sub = df[df["Contestant"] == contestant].copy()
+    sub = df[df["Name"] == name].copy()
 
     sub = sub.sort_values(
         ["rank_pos", "Points"],
@@ -472,7 +475,7 @@ def make_contestant_table_html(contestant, df):
     html.append('<section class="team-card">')
 
     html.append(
-        f"<h3>{esc(contestant)} "
+        f"<h3>{esc(name)} "
         f"<span>(Total Points: {total_points})</span></h3>"
     )
 
@@ -563,8 +566,8 @@ last_updated = datetime.now(
 leaderboard_html = make_leaderboard_html(rankings)
 
 contestant_tables_html = "\n".join(
-    make_contestant_table_html(contestant, joined)
-    for contestant in rankings["Contestant"]
+    make_contestant_table_html(name, joined)
+    for name in rankings["Name"]
 )
 
 template = Template(r'''
@@ -823,3 +826,4 @@ with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
 print(f"Created: {HTML_FILE}")
 print(f"Created: {zip_path}")
 print("Done.")
+```
