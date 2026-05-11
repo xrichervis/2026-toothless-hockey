@@ -108,6 +108,37 @@ pool["Team"] = pool["Team"].apply(clean_team)
 pool["Position"] = pool["Position"].apply(clean_position)
 pool["Player_clean"] = pool["Player"].apply(normalize_name)
 
+# -----------------------------
+# ADD DRAFT ORDER
+# -----------------------------
+
+DRAFT_ORDER_MAP = {
+    "James": 1,
+    "Alyssa": 2,
+    "Xavi": 3,
+    "Coltrane": 4,
+    "Luka": 5,
+    "Dave": 6,
+    "Tom": 7,
+    "Anuja": 8,
+    "Kia": 9,
+    "Dyuman": 10,
+}
+
+pool["Draft Order"] = pool["Contestant"].map(DRAFT_ORDER_MAP)
+
+# move Draft Order beside Contestant
+cols = pool.columns.tolist()
+
+contestant_idx = cols.index("Contestant")
+
+cols.insert(
+    contestant_idx + 1,
+    cols.pop(cols.index("Draft Order"))
+)
+
+pool = pool[cols]
+
 print(f"Loaded {len(pool)} picks.")
 
 # -----------------------------
