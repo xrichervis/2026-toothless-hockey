@@ -11,7 +11,7 @@ import html as html_escape
 
 SEASON_NAME = "20252026"
 PLAYOFF_BRACKET_URL = "https://api-web.nhle.com/v1/playoff-bracket/2026"
-CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRwp6OncSv2CpUxjFNsJNZ7gG5BBKUIVNYHoFwR7TTJstb-mpGNQYmYwyizlRRalA/pub?output=csv"
+CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQdk669n1y0Um97gS2SP5_kurFkz630NQSSpIMLV3ytp7ZaACKJZkBNqNz6ZBtfdnLHUu3Lkjb7CeKF/pub?output=csv"
 
 OUT_DIR = Path(".")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
